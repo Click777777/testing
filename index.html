@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/0a1429c11d.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        color: #f5f7fa;
+      }
+      body {
+        background-color: #2b2024;
+      }
+      .container {
+        width: 80%;
+        margin: 25px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .text {
+        font-size: 30px;
+        color: #fd0054;
+        font-weight: bolder;
+        font-style: italic;
+      }
+      .ul {
+        list-style: none;
+      }
+      .liTag {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 5px;
+        font-size: 18px;
+      }
+      .menu {
+        font-size: 20px;
+        color: #fd0054;
+        display: none;
+      }
+      .blocks {
+        display: block;
+      }
+      .ulR {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: #a80038;
+        border-radius: 5px;
+      }
+
+      @media (max-width: 425px) {
+        ul {
+          display: none;
+        }
+        .container {
+          width: 90%;
+        }
+        .text {
+          font-size: 18px;
+        }
+        .menu {
+          display: block;
+        }
+        .liTag {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="animate__animated text animate__flash">
+        Reverse Engineering
+      </div>
+      <i class="fas fa-bars menu"></i>
+
+      <ul class="ul">
+        <li class="liTag">Home</li>
+        <li class="liTag">Get Key</li>
+        <li class="liTag">Servies</li>
+        <li class="liTag">Help</li>
+        <li class="liTag">Privacy</li>
+      </ul>
+    </section>
+
+    <script>
+      let menu = document.querySelectorAll(".menu")[0];
+      let ul = document.querySelectorAll(".ul")[0];
+      let liTag = document.querySelectorAll(".liTag");
+      let stored;
+      menu.addEventListener("click", () => {
+        if (ul.classList.contains("check")) {
+          ul.classList.remove(
+            "animate__bounceInRight",
+            "animate__animated",
+            "check"
+          );
+          ul.classList.add("animate__bounceOutRight", "animate__animated");
+        } else {
+          if (
+            ul.classList.contains(
+              "animate__bounceOutRight",
+              "animate__animated"
+            )
+          ) {
+            ul.classList.remove("animate__bounceOutRight", "animate__animated");
+          }
+          liTag.forEach((i) => {
+            i.classList.add("blocks");
+          });
+          ul.classList.add(
+            "ulR",
+            "animate__bounceInRight",
+            "animate__animated",
+            "check"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
